@@ -64,6 +64,8 @@ def scrape_list(url)
         wikipedia_title: tds[1].xpath('a[not(@class="new")]/@title').text,
         constituency: constituency,
         votes: tds[2].text.to_i,
+        term: 14,
+        source: url,
       }
       data[:wikipedia] = URI.join('https://en.wikipedia.org/', data[:wikipedia]).to_s unless data[:wikipedia].to_s.empty?
       # https://en.wikipedia.org/wiki/Mitiaro_by-election_2014
